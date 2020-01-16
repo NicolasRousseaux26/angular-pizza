@@ -31,7 +31,7 @@ export class AppComponent {
     { name: 'Olive', image: 'olive.jpg', weight: 5, price: 1 } 
   ];
 
-  selectedIngredient: Ingredient;
+  selectedIngredients: Ingredient[] = [];
 
   constructor() {
     this.calculateAge('1991-11-18');
@@ -54,6 +54,15 @@ export class AppComponent {
 
   selectIngredient(event) {
     console.log(event);
-    this.selectedIngredient = event;
+    // si l'ingredient et pas encore dans la liste on autorise l'ajoute
+    if(!this.selectedIngredients.includes(event)) {
+      this.selectedIngredients.push(event);
+    }
+  }
+
+  deleteIngredient(index: number) {
+    event.stopPropagation();
+    // on supprime l'index du tableau
+    this.selectedIngredients.splice(index, 1)
   }
 }
