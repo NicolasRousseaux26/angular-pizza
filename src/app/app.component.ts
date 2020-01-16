@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Pizza } from './model/pizza.model';
 import { User } from './model/user.model';
+import { Ingredient } from './model/ingredient';
 
 const PIZZAS: Pizza[] = [
   { id: 1, name: 'Reine', price: 12 },
@@ -18,12 +19,17 @@ export class AppComponent {
   selectedPizza: Pizza;
   pizzas: Pizza[] = PIZZAS;
   user: User = {
-    name: 'Mota',
-    firstname: 'Matthieu',
-    birthday: '1991-11-18',
+    name: 'Rousseaux',
+    firstname: 'Nicolas',
+    birthday: '1991-11-26',
     avatar: 'https://image.flaticon.com/icons/png/512/48/48688.png',
     age: null
   };
+
+  ingredients: Ingredient[] = [
+    { name: 'tomate', image: 'tomate.jpg', weight: 40, price: 2 },
+    { name: 'Olive', image: 'olive.jpg', weight: 5, price: 1 } 
+  ];
 
   constructor() {
     this.calculateAge('1991-11-18');
@@ -40,5 +46,7 @@ export class AppComponent {
 
   onSelect(pizza: Pizza): void {
     // On récupère la pizza cliquée
+    console.log(pizza);
+    this.selectedPizza = pizza;
   }
 }

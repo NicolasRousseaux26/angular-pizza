@@ -2,9 +2,11 @@ $color: lightgreen;
 
 li {
 
+    max-width: 150px;
+
     transition: 0.5s;
     
-    &:hover {
+    &:hover, &.selected {
         box-shadow: 1px 1px 1px 1px lightslategrey;
     }
 }
