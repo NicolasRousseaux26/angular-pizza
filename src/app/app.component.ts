@@ -31,6 +31,8 @@ export class AppComponent {
     { name: 'Olive', image: 'olive.jpg', weight: 5, price: 1 } 
   ];
 
+  selectedIngredient: Ingredient;
+
   constructor() {
     this.calculateAge('1991-11-18');
   }
@@ -48,5 +50,10 @@ export class AppComponent {
     // On récupère la pizza cliquée
     console.log(pizza);
     this.selectedPizza = pizza;
+  }
+
+  selectIngredient(event) {
+    console.log(event);
+    this.selectedIngredient = event;
   }
 }

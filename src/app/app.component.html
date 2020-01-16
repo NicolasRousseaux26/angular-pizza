@@ -10,16 +10,24 @@
   <input [value]="selectedPizza.name" (keyup)="selectedPizza.name = $event.target.value">
 -->
 <h2>Les pizzas</h2>
-<ul>
-  <li *ngFor="let pizza of pizzas" 
-      (click)="onSelect(pizza)"
-      [class.selected]="pizza === selectedPizza"
+<div class="row">
+  <div *ngFor="let pizza of pizzas" 
+      (click)="onSelect(pizza)"      
+      class="col-3"
   >
-    {{ pizza.name }}
-  </li>
-</ul>
+  <div class="card" [class.selected]="pizza === selectedPizza"> 
+    <div class="card-body">
+    <h5 class="card-title">{{ pizza.name }}</h5>
+    <p *ngIf="selectedIngredient">
+      Vous avez choisis : {{ selectedIngredient.name }}
+    </p>
+  </div>
+  </div>
+   
+  </div>
+</div>
 
 <h2>les TPs</h2>
 <app-author [user]="user"></app-author>
-<app-menu [ingredients]="ingredients" ></app-menu>
+<app-menu [ingredients]="ingredients" (select)="selectIngredient($event)"></app-menu>
 </div>
