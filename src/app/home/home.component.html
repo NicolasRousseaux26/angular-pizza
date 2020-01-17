@@ -7,25 +7,26 @@
   <input [value]="selectedPizza.name" (keyup)="selectedPizza.name = $event.target.value">
 -->
 <h2>Les pizzas</h2>
-<div class="row">
-  <div *ngFor="let pizza of pizzas" 
-      (click)="onSelect(pizza)"      
-      class="col-3"
-  >
-  <div class="card" [class.selected]="pizza === selectedPizza"> 
-    <div class="card-body">
-    <h5 class="card-title">{{ pizza.name }}</h5>
-    <p>prix HT : {{ pizza.price }}</p>
-    <p>prix TTC : {{ pizza.price | taxe }}</p>
-    <span *ngFor="let selectedIngredient of selectedIngredients; index as i" 
-    class="badge badge-primary"
+  <div class="row">
+    <div *ngFor="let pizza of pizzas" 
+        (click)="onSelect(pizza)"      
+        class="col-3"
     >
-      Vous avez choisis : {{ selectedIngredient.name }}
-      <span (click)="deleteIngredient(i, $event)" class="text-danger">X</span>
-    </span>
-    
-  </div>
-  </div>
+    <div class="card" [class.selected]="pizza === selectedPizza"> 
+      <div class="card-body">
+      <h5 class="card-title">{{ pizza.name }}</h5>
+      <p>prix HT : {{ pizza.price }}</p>
+      <p>prix TTC : {{ pizza.price | taxe }}</p>
+      <a routerLink="/pizza/{{pizza.id}}" class="btn btn-primary">voire la pizza</a>
+      <span *ngFor="let selectedIngredient of selectedIngredients; index as i" 
+      class="badge badge-primary"
+      >
+        Vous avez choisis : {{ selectedIngredient.name }}
+        <span (click)="deleteIngredient(i, $event)" class="text-danger">X</span>
+      </span>
+      
+    </div>
+    </div>
    
   </div>
 </div>
