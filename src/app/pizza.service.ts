@@ -16,4 +16,10 @@ export class PizzaService {
       response => response as Pizza[]
     );
   }
+  // on recupére une pizza 
+  getPizza(id): Promise<Pizza> {
+    return this.http.get('http://localhost:3000/pizzas/'+id).toPromise().then(
+      response => response as Pizza
+    );
+  }
 }

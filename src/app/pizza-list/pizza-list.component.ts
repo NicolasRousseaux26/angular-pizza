@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PizzaService } from '../pizza.service';
+import { Pizza } from '../model/pizza.model';
 
 @Component({
   selector: 'app-pizza-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PizzaListComponent implements OnInit {
 
-  constructor() { }
+  pizzas: Pizza[] = [];
+
+  constructor(private pizzaService: PizzaService) { }
 
   ngOnInit() {
+    this.pizzaService.getPizzas().then(pizzas => this.pizzas = pizzas);
   }
 
 }
