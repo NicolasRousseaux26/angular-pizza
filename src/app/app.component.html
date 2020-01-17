@@ -18,6 +18,8 @@
   <div class="card" [class.selected]="pizza === selectedPizza"> 
     <div class="card-body">
     <h5 class="card-title">{{ pizza.name }}</h5>
+    <p>prix HT : {{ pizza.price }}</p>
+    <p>prix TTC : {{ pizza.price | taxe }}</p>
     <span *ngFor="let selectedIngredient of selectedIngredients; index as i" 
     class="badge badge-primary"
     >
@@ -34,4 +36,12 @@
 <h2>les TPs</h2>
 <app-author [user]="user"></app-author>
 <app-menu [ingredients]="ingredients" (select)="selectIngredient($event)"></app-menu>
+
+
+<h2>les pipe</h2>
+<p>{{ 'hello' | test:'==':'==' }}</p>
+
+<p>TVA 20% :{{ 10 | taxe }}</p>
+<p>TVA 65% : {{ 10 | taxe:65 }}</p>
+
 </div>

@@ -7,6 +7,8 @@ import { PizzaComponent } from './pizza/pizza.component';
 import { AuthorComponent } from './author/author.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavbarreComponent } from './navbarre/navbar.component';
+import { TestPipe } from './test.pipe';
+import { TaxePipe } from './taxe.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NavbarreComponent } from './navbarre/navbar.component';
     PizzaComponent,
     AuthorComponent,
     MenuComponent,
-    NavbarreComponent
+    NavbarreComponent,
+    TestPipe,
+    TaxePipe
   ],
   imports: [
     BrowserModule,
